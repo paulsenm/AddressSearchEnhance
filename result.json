@@ -1,0 +1,51 @@
+[
+    {
+        "place_id":290395232,
+        "licence":"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type":"way",
+        "osm_id":1060450735,
+        "boundingbox":["44.0456544","44.0456617","-122.9259047","-122.9225184"],
+        "lat":"44.0456585",
+        "lon":"-122.9241662",
+        "display_name":"Main Street, Thurston, Springfield, Lane County, Oregon, 97478, United States",
+        "class":"highway","type":"trunk","importance":0.50001
+    },
+
+    {
+        "place_id":290395983,"licence":"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type":"way",
+        "osm_id":128001735,
+        "boundingbox":["44.0458501","44.04706","-122.8968045","-122.8885482"],
+        "lat":"44.046587",
+        "lon":"-122.8917168",
+        "display_name":"Main Street, Springfield, Lane County, Oregon, 97478, United States",
+        "class":"highway",
+        "type":"trunk",
+        "importance":0.50001
+    },
+    {
+        "place_id":290391010,
+        "licence":"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type":"way",
+        "osm_id":435896157,
+        "boundingbox":["44.0461859","44.0461955","-123.0220614","-123.0195553"],
+        "lat":"44.0461882",
+        "lon":"-123.020817",
+        "display_name":"Main Street, Springfield, Lane County, Oregon, 97477, United States",
+        "class":"highway",
+        "type":"primary",
+        "importance":0.50001},
+    {
+        "place_id":290395142,
+        "licence":"Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type":"way",
+        "osm_id":83789752,
+        "boundingbox":["44.0456761","44.0456917","-122.9339128","-122.9308696"],
+        "lat":"44.0456822",
+        "lon":"-122.932057",
+        "display_name":"Main Street, Thurston, Springfield, Lane County, Oregon, 97478, United States",
+        "class":"highway",
+        "type":"primary",
+        "importance":0.50001
+    }
+]
