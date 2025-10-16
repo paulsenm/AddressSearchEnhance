@@ -13,7 +13,8 @@ def get_lat_lon(address_string):
     result_data = result.text
     result_parsed = json.loads(result_data)
     print(f"lat was: {result_parsed[0]["lat"]}")
-    lat_lon = [result_parsed[0]["lat"], result_parsed[0]["lon"]]
+    print(f"lon was: {result_parsed[0]["lon"]}")
+    lat_lon = [float(result_parsed[0]["lat"]), float(result_parsed[0]["lon"])]
     return lat_lon
 
 

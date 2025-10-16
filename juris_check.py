@@ -1,4 +1,4 @@
-import argparse, json, sys
+import json, sys
 
 from math import inf
 from shapely.geometry import shape, Point, LineString
@@ -77,21 +77,21 @@ def find_point_container(lat: float, lon: float):
 
     for f in cities:
         min_x, min_y, max_x, max_y = f["bbox"]
-        #print(str(f["bbox"]))
         if x < min_x:
-            print(f"The min x for {f["name"]} was: {min_x}")
+            #print(f"The min x for {f["name"]} was: {min_x}")
             continue
         if y < min_y:
-            print(f"The min x for {f["name"]} was: {min_y}")
+            #print(f"The min x for {f["name"]} was: {min_y}")
             continue
         if x > max_x:
-            print(f"The min x for {f["name"]} was: {max_x}")
+            #print(f"The min x for {f["name"]} was: {max_x}")
             continue
         if x > max_y:
-            print(f"The min x for {f["name"]} was: {max_y}")
+            #print(f"The min x for {f["name"]} was: {max_y}")
             continue                
 
         if f["geom"].covers(point):
+            print(f"The address is within {f["name"]} city limits")
             return {"in_city_limits": True, "city": f["name"]}
         continue
     
@@ -101,5 +101,3 @@ def find_point_container(lat: float, lon: float):
     return {"in_city_limits": False, "city": None}
     
 
-result = find_point_container(44.055237184721314, -123.03717376489655)
-print(f"In city limits: {str(result)}")
