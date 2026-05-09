@@ -69,13 +69,14 @@ def get_cities():
         _CITIES = load_city_polys(CITY_LIMITS_PATH)
     return _CITIES
 
-def find_point_container(lat: float, lon: float):
+def is_within_city_limmits(lat: float, lon: float):
     cities = get_cities()
     point = Point(lon, lat)
     x = lon
     y = lat
 
     for feature in cities:
+        print(f'city name was: {feature["name"]}')
         min_x, min_y, max_x, max_y = feature["bbox"]
         if x < min_x:
             #print(f"The min x for {f["name"]} was: {min_x}")
@@ -95,8 +96,9 @@ def find_point_container(lat: float, lon: float):
             return {"in_city_limits": True, "city": feature["name"]}
         continue
     
-    print(f'failed second test with lat: {y}, and lon: {x} for city: {feature["name"]}')
-    print(f'bbox for {feature["name"]} was: {feature["bbox"]}')
+    # print(f'failed second test with lat: {y}, and lon: {x} for city: {feature["name"]}')
+    # print(f'bbox for {feature["name"]} was: {feature["bbox"]}')
+    print('Address does not appear to be within any city limits.')
 
     return {"in_city_limits": False, "city": None}
     
