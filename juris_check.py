@@ -76,7 +76,7 @@ def is_within_city_limmits(lat: float, lon: float):
     y = lat
 
     for feature in cities:
-        print(f'city name was: {feature["name"]}')
+        #print(f'city name was: {feature["name"]}')
         min_x, min_y, max_x, max_y = feature["bbox"]
         if x < min_x:
             #print(f"The min x for {f["name"]} was: {min_x}")
