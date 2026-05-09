@@ -1,6 +1,9 @@
 import os
 import json
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 API_KEY = os.getenv("GEOCODE_API_KEY")
 
@@ -12,8 +15,8 @@ def get_lat_lon(address_string):
     result = requests.get(url)
     result_data = result.text
     result_parsed = json.loads(result_data)
-    print(f"lat was: {result_parsed[0]["lat"]}")
-    print(f"lon was: {result_parsed[0]["lon"]}")
+    print(f'lat was: {result_parsed[0]["lat"]}')
+    print(f'lon was: {result_parsed[0]["lon"]}')
     lat_lon = [float(result_parsed[0]["lat"]), float(result_parsed[0]["lon"])]
     return lat_lon
 
