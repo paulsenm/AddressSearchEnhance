@@ -28,12 +28,12 @@ def load_city_polys(path):
         geom = feature.get("geometry")
         if not geom:
             continue
-        g = shape(geom)
-        if g.is_empty:
+        city_shape = shape(geom)
+        if city_shape.is_empty:
             continue
 
         name = str(feature.get("properties", {}).get(CITY_FIELD) or "")
-        feats.append({"name":name, "geom":g, "bbox":g.bounds, "prep": prep(g)})
+        feats.append({"name":name, "geom":city_shape, "bbox":city_shape.bounds, "prep": prep(city_shape)})
     if not feats:
         print(json.dump({"error":"No city features found"}), file=sys.stderr)
         sys.exit(2)
@@ -75,8 +75,8 @@ def find_point_container(lat: float, lon: float):
     x = lon
     y = lat
 
-    for f in cities:
-        min_x, min_y, max_x, max_y = f["bbox"]
+    for feature in cities:
+        min_x, min_y, max_x, max_y = feature["bbox"]
         if x < min_x:
             #print(f"The min x for {f["name"]} was: {min_x}")
             continue
@@ -86,17 +86,17 @@ def find_point_container(lat: float, lon: float):
         if x > max_x:
             #print(f"The min x for {f["name"]} was: {max_x}")
             continue
-        if x > max_y:
+        if y > max_y:
             #print(f"The min x for {f["name"]} was: {max_y}")
             continue                
 
-        if f["geom"].covers(point):
-            print(f"The address is within {f["name"]} city limits")
-            return {"in_city_limits": True, "city": f["name"]}
+        if feature["geom"].covers(point):
+            print(f"The address is within {feature["name"]} city limits")
+            return {"in_city_limits": True, "city": feature["name"]}
         continue
     
-    print(f"failed second test with lat: {y}, and lon: {x} for city: {f["name"]}")
-    print(f"bbox for {f["name"]} was: {f["bbox"]}")
+    print(f'failed second test with lat: {y}, and lon: {x} for city: {feature["name"]}')
+    print(f'bbox for {feature["name"]} was: {feature["bbox"]}')
 
     return {"in_city_limits": False, "city": None}
     
