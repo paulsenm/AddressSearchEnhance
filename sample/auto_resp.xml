@@ -1,32 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<soap:Body><GetListItemsResponse xmlns="http://schemas.microsoft.com/sharepoint/soap/">
-<GetListItemsResult>
-<listitems xmlns:s=\'uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882\'\r\n     xmlns:dt=\'uuid:C2F41010-65B3-11d1-A29F-00AA00C14882\'\r\n     xmlns:rs=\'urn:schemas-microsoft-com:rowset\'\r\n     xmlns:z=\'#RowsetSchema\'>
-<rs:data ItemCount="2">
-<z:row 
-    ows_Jurisdiction=\'92;#Woodburn\' 
-    ows_City=\'Woodburn\' 
-    ows_Service_x0020_types=\';#Structural;#Mechanical;#\' 
-    ows_Permits=\'Woodburn provides:&lt;ul&gt;&lt;li&gt;Structural permits&lt;/li&gt;&lt;li&gt;Mechanical permits&lt;/li&gt;&lt;/ul&gt;Electrical and Plumbing permits are issued by Marion County.\' 
-    ows_County=\'Marion County\' ows_Sorting=\'2.00000000000000\' ows__ModerationStatus=\'0\' ows__Level=\'1\' ows_Title=\'Woodburn\' ows_ID=\'518\' ows_UniqueId=\'518;#{3455A5E4-F223-4CBA-8049-EFF83C6A1669}\' 
-    ows_owshiddenversion=\'1\' ows_FSObjType=\'518;#0\' ows_Created=\'2018-08-06 10:20:23\' ows_PermMask=\'0x1000030041\' ows_Modified=\'2018-08-13 10:45:36\' ows_FileRef=\'518;#bcd/Lists/lbddlocation/518_.000\' ows_MetaInfo=\'518;#\' />
+    <soap:Body>
+        <GetListItemsResponse xmlns="http://schemas.microsoft.com/sharepoint/soap/">
+            <GetListItemsResult>
+                <listitems xmlns:s=\'uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882\'\r\n     xmlns:dt=\'uuid:C2F41010-65B3-11d1-A29F-00AA00C14882\'\r\n     xmlns:rs=\'urn:schemas-microsoft-com:rowset\'\r\n     xmlns:z=\'#RowsetSchema\'>
+                    <rs:data ItemCount="2">
+                    <z:row 
+                        ows_Jurisdiction=\'92;#Woodburn\' 
+                        ows_City=\'Woodburn\' 
+                        ows_Service_x0020_types=\';#Structural;#Mechanical;#\' 
+                        ows_Permits=\'Woodburn provides:&lt;ul&gt;&lt;li&gt;Structural permits&lt;/li&gt;&lt;li&gt;Mechanical permits&lt;/li&gt;&lt;/ul&gt;Electrical and Plumbing permits are issued by Marion County.\' 
+                        ows_County=\'Marion County\' ows_Sorting=\'2.00000000000000\' ows__ModerationStatus=\'0\' ows__Level=\'1\' ows_Title=\'Woodburn\' ows_ID=\'518\' ows_UniqueId=\'518;#{3455A5E4-F223-4CBA-8049-EFF83C6A1669}\' 
+                        ows_owshiddenversion=\'1\' ows_FSObjType=\'518;#0\' ows_Created=\'2018-08-06 10:20:23\' ows_PermMask=\'0x1000030041\' ows_Modified=\'2018-08-13 10:45:36\' ows_FileRef=\'518;#bcd/Lists/lbddlocation/518_.000\' ows_MetaInfo=\'518;#\' />
 
-<z:row 
-    ows_Jurisdiction=\'2;#Marion County\' 
-    ows_City=\'Woodburn\' 
-    ows_Service_x0020_types=\';#Electrical;#Plumbing;#\' 
-    ows_Permits=\'Electrical permits | Plumbing permits\' 
-    ows_County=\'Marion County\' 
-    ows_Sorting=\'2.00000000000000\' 
-    ows__ModerationStatus=\'0\' 
-    ows__Level=\'1\' 
-    ows_Title=\'Woodburn\' 
-    ows_ID=\'519\' 
-    ows_UniqueId=\'519;#{B7107690-E904-4F73-9902-5F0C31C01A35}\' 
-    ows_owshiddenversion=\'1\' ows_FSObjType=\'519;#0\' 
-    ows_Created=\'2018-08-06 10:20:23\' 
-    ows_PermMask=\'0x1000030041\' 
-    ows_Modified=\'2018-08-13 10:45:36\' 
-    ows_FileRef=\'519;#bcd/Lists/lbddlocation/519_.000\' 
-    ows_MetaInfo=\'519;#\' />\r\n</rs:data>\r\n</listitems></GetListItemsResult></GetListItemsResponse></soap:Body></soap:Envelope>
+                    <z:row 
+                        ows_Jurisdiction=\'2;#Marion County\' 
+                        ows_City=\'Woodburn\' 
+                        ows_Service_x0020_types=\';#Electrical;#Plumbing;#\' 
+                        ows_Permits=\'Electrical permits | Plumbing permits\' 
+                        ows_County=\'Marion County\' 
+                        ows_Sorting=\'2.00000000000000\' 
+                        ows__ModerationStatus=\'0\' 
+                        ows__Level=\'1\' 
+                        ows_Title=\'Woodburn\' 
+                        ows_ID=\'519\' 
+                        ows_UniqueId=\'519;#{B7107690-E904-4F73-9902-5F0C31C01A35}\' 
+                        ows_owshiddenversion=\'1\' 
+                        ows_FSObjType=\'519;#0\' 
+                        ows_Created=\'2018-08-06 10:20:23\' 
+                        ows_PermMask=\'0x1000030041\' 
+                        ows_Modified=\'2018-08-13 10:45:36\' 
+                        ows_FileRef=\'519;#bcd/Lists/lbddlocation/519_.000\' 
+                        ows_MetaInfo=\'519;#\' />
+                    </rs:data>
+                </listitems>
+            </GetListItemsResult>
+        </GetListItemsResponse>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+<ns0:Envelope xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://schemas.microsoft.com/sharepoint/soap/" xmlns:ns2="urn:schemas-microsoft-com:rowset" xmlns:ns3="#RowsetSchema">
+<ns0:Body>
+<ns1:GetListItemsResponse>
+<ns1:GetListItemsResult>
+<ns1:listitems>
+<ns2:data ItemCount="2">
+   <ns3:row ows_Jurisdiction="92;#Woodburn" ows_City="Woodburn" ows_Service_x0020_types=";#Structural;#Mechanical;#" ows_Permits="Woodburn provides:&lt;ul&gt;&lt;li&gt;Structural permits&lt;/li&gt;&lt;li&gt;Mechanical permits&lt;/li&gt;&lt;/ul&gt;Electrical and Plumbing permits are issued by Marion County." ows_County="Marion County" ows_Sorting="2.00000000000000" ows__ModerationStatus="0" ows__Level="1" ows_Title="Woodburn" ows_ID="518" ows_UniqueId="518;#{3455A5E4-F223-4CBA-8049-EFF83C6A1669}" ows_owshiddenversion="1" ows_FSObjType="518;#0" ows_Created="2018-08-06 10:20:23" ows_PermMask="0x1000030041" ows_Modified="2018-08-13 10:45:36" ows_FileRef="518;#bcd/Lists/lbddlocation/518_.000" ows_MetaInfo="518;#" />
+   <ns3:row ows_Jurisdiction="2;#Marion County" ows_City="Woodburn" ows_Service_x0020_types=";#Electrical;#Plumbing;#" ows_Permits="Electrical permits | Plumbing permits" ows_County="Marion County" ows_Sorting="2.00000000000000" ows__ModerationStatus="0" ows__Level="1" ows_Title="Woodburn" ows_ID="519" ows_UniqueId="519;#{B7107690-E904-4F73-9902-5F0C31C01A35}" ows_owshiddenversion="1" ows_FSObjType="519;#0" ows_Created="2018-08-06 10:20:23" ows_PermMask="0x1000030041" ows_Modified="2018-08-13 10:45:36" ows_FileRef="519;#bcd/Lists/lbddlocation/519_.000" ows_MetaInfo="519;#" />
+</ns2:data>
+</ns1:listitems></ns1:GetListItemsResult></ns1:GetListItemsResponse></ns0:Body></ns0:Envelope>
