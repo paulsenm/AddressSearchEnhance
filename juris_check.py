@@ -102,7 +102,7 @@ def get_counties():
         _COUNTIES = load_county_polys(COUNTY_LIMITS_PATH)
     return _COUNTIES
 
-def is_within_city_limmits(lat: float, lon: float):
+def is_within_city_limits(lat: float, lon: float):
     cities = get_cities()
     point = Point(lon, lat)
     x = lon
