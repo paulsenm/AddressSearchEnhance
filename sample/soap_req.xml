@@ -1,0 +1,36 @@
+<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
+    <soap:Body>
+        <GetListItems xmlns='http://schemas.microsoft.com/sharepoint/soap/'>
+            <listName>lbdd-location</listName>
+            <viewName></viewName>
+            <query>
+                <Query>	
+                    <OrderBy> 	
+                    </OrderBy>	
+                    <Where> 	
+                        <Contains>
+                            <FieldRef Name="City"/>
+                            <Value Type="Text">Woodburn</Value>
+                        </Contains>	
+                    </Where>"	
+                </Query>
+            </query>
+            <viewFields>
+                <ViewFields Properties='True' >  
+                <FieldRef Name='Jurisdiction' />  
+                <FieldRef Name='City' />  
+                <FieldRef Name='Service_x0020_types' />  
+                <FieldRef Name='Permits' />  
+                <FieldRef Name='County' />  
+                <FieldRef Name='Sorting' /> 
+                </ViewFields>
+            </viewFields>
+            <rowLimit>5000</rowLimit>
+            <queryOptions>
+                <QueryOptions>
+                    <ViewAttributes Scope='Recursive' />
+                </QueryOptions>
+            </queryOptions>
+        </GetListItems>
+    </soap:Body>
+</soap:Envelope>
