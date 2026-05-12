@@ -56,7 +56,8 @@ def request_county(county_name):
         permit_types_clean = re.sub(r'[^a-zA-Z]', ' ', permit_types_raw)
 
         juris_permit_type_obj = {'place name': juris_clean, 'permit types': permit_types_clean}
-        juris_permit_type_array.append(juris_permit_type_obj)
+        if juris_raw == county_name:
+            juris_permit_type_array.append(juris_permit_type_obj)
         print(f'{juris_clean} handles{permit_types_clean}')
     
     return juris_permit_type_array
