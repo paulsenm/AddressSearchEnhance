@@ -144,5 +144,6 @@ def is_within_county_limits(lat: float, lon: float):
             return {"in_county_limits":True, "county":feature["name"]}
         continue
     print("Address somehow not in a county - this shouldn't happen")
+    return {"in_county_limits": True, "county": feature["name"]}
     
 

@@ -42,7 +42,24 @@ def request_city(city_name):
 
 
 def request_county(county_name):
-    print('search for county if soap request is significantly different')
+    request_body = f"<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><GetListItems xmlns='http://schemas.microsoft.com/sharepoint/soap/'><listName>lbdd-location</listName><viewName></viewName><query><Query>	<OrderBy> 	</OrderBy>	<Where>	<Contains><FieldRef Name='County'/><Value Type='Text'>{county_name}</Value></Contains>	</Where>'	</Query></query><viewFields><ViewFields Properties='True' >  <FieldRef Name='Jurisdiction' />  <FieldRef Name='City' />  <FieldRef Name='Service_x0020_types' />  <FieldRef Name='Permits' />  <FieldRef Name='County' />  <FieldRef Name='Sorting' /> </ViewFields></viewFields><rowLimit>5000</rowLimit><queryOptions><QueryOptions><ViewAttributes Scope='Recursive' /></QueryOptions></queryOptions></GetListItems></soap:Body></soap:Envelope>"
+    response = requests.post(URL, data = request_body, headers=HEADERS)
+
+    xml_root = ET.fromstring(response.content)
+    rows = xml_root.findall('.//z:row', namespaces=NAMESPACES)
+
+    juris_permit_type_array = []
+    for row in rows:
+        juris_raw = row.attrib.get('ows_Title')
+        juris_clean = "".join(filter(str.isalpha, juris_raw))
+        permit_types_raw = row.attrib.get('ows_Service_x0020_types')
+        permit_types_clean = re.sub(r'[^a-zA-Z]', ' ', permit_types_raw)
+
+        juris_permit_type_obj = {'place name': juris_clean, 'permit types': permit_types_clean}
+        juris_permit_type_array.append(juris_permit_type_obj)
+        print(f'{juris_clean} handles{permit_types_clean}')
+    
+    return juris_permit_type_array
 
 def get_juris_contact(juris_name):
     request_body = f"<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'><soap:Body><GetListItems xmlns='http://schemas.microsoft.com/sharepoint/soap/'><listName>lbdd-Jurisdictions</listName><viewName></viewName><query><Query>	<OrderBy> 	<FieldRef Name='Sorting' Ascending='TRUE'/>	</OrderBy>	<Where>	</Where>'	</Query></query><viewFields> <ViewFields Properties='True' >  <FieldRef Name='Title' />  <FieldRef Name='Contact_x0020_information' />  <FieldRef Name='Sorting' /> </ViewFields></viewFields><rowLimit>5000</rowLimit><queryOptions><QueryOptions><ViewAttributes Scope='Recursive' /></QueryOptions></queryOptions></GetListItems></soap:Body></soap:Envelope>"
