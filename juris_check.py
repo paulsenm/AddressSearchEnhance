@@ -1,12 +1,9 @@
 import json, sys
 
-from math import inf
-from shapely.geometry import shape, Point, LineString
+from shapely.geometry import shape, Point
 from shapely.prepared import prep
-from shapely.ops import nearest_points
 
 
-from pyproj import Geod
 
 CITY_LIMITS_PATH = "City_Limits.geojson"
 COUNTY_LIMITS_PATH = "County_Limits.geojson"
@@ -58,7 +55,7 @@ def load_county_polys(path):
             continue
 
         name = str(feature.get('properties', {}).get(COUNTY_FIELD) or "")
-        features.append({'name':name, 'geom':county_shape, 'bbox':county_shape.bounds, prep:prep(county_shape)})
+        features.append({'name':name, 'geom':county_shape, 'bbox':county_shape.bounds, 'prep':prep(county_shape)})
     if not features:
         print(json.dumps({"error":"No county features found"}), file=sys.stderr)
         sys.exit(2)

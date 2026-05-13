@@ -1,6 +1,6 @@
 from addr_search import get_lat_lon
-from juris_check import load_city_polys, get_cities, is_within_city_limits, get_location_name
-from soap_requests import request_juris, get_juris_contact
+from juris_check import is_within_city_limits, get_location_name
+from soap_requests import request_juris
 
 from classes.address import AddressPoint
 
