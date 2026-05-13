@@ -1,12 +1,9 @@
 from dataclasses import dataclass
 
-from address import Address
-from contact import Contact
-
 @dataclass
 class JurisInfo:
-    address: Address
-    permit_types: str
-    contact: Contact
+    jurisdiction_name: str
+    permit_types: list[str]
     
-    
+    def __str__(self) -> str:
+        return f'juris name was: {self.jurisdiction_name}'

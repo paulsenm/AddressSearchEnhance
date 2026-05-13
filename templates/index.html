@@ -14,20 +14,15 @@
 
     </form>
     <div class="address-info">
-        {% if complete_info %}
-            {% for juris in complete_info['juris objects']  %}
+        {% if contact_blocks %}
+            {% for contact_block in contact_blocks %}
                 <div class="card m-3 p-3" style="width: 25rem;">
-                    <h4 class="card-title">Jurisdiction: {{ juris['place name'] }}</h4>
-                    <p class="card-text">Permit types: {{ juris['permit types'] }}  </p>  
-                </div>        
-            {% endfor %}
-
-            
-            {% for address in complete_info['contact objects'] %}
-            <div class="card m-3 p-3" style="width: 25rem;">
-                <h4 class="card-title">Jurisdiction: {{ address['agency name'] }}</h4>
-                <p class="card-text">{{ address['contact chunk html']|safe }}</p>
-            </div>
+                    <h4 class="card-title">Jurisdiction: {{ contact_block.juris_block.jurisdiction_name }}</h4>
+                    {%for permit_type in contact_block.juris_block.permit_types %}
+                    <p class="card-text">{{ permit_type }}   </p>
+                    {% endfor %}
+                    <p class="card-text">{{ contact_block.contact_info | safe }}</p>
+                </div>                
             {% endfor %}
         {% endif %}
     </div>

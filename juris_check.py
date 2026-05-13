@@ -102,6 +102,9 @@ def get_counties():
         _COUNTIES = load_county_polys(COUNTY_LIMITS_PATH)
     return _COUNTIES
 
+
+
+
 def is_within_city_limits(lat: float, lon: float):
     cities = get_cities()
     point = Point(lon, lat)
@@ -126,24 +129,25 @@ def is_within_city_limits(lat: float, lon: float):
 
         if feature["geom"].covers(point):
             print(f'The address is within {feature["name"]} city limits')
-            return {"in_city_limits": True, "city": feature["name"]}
+            #return {"in_city_limits": True, "city": feature["name"]}
+            return True
         continue
-    
-    # print(f'failed second test with lat: {y}, and lon: {x} for city: {feature["name"]}')
-    # print(f'bbox for {feature["name"]} was: {feature["bbox"]}')
-    print('Address does not appear to be within any city limits.')
+    return False
 
-    return {"in_city_limits": False, "city": None}
-
-def is_within_county_limits(lat: float, lon: float):
-    counties = get_counties()
+def get_location_name(lat: float, lon: float, is_within_city_limits: bool):
+    location_name = ''
     point = Point(lon, lat)
-    for feature in counties:
-        if feature["geom"].covers(point):
-            print(f'The address is within {feature["name"]} county limits')
-            return {"in_county_limits":True, "county":feature["name"]}
-        continue
-    print("Address somehow not in a county - this shouldn't happen")
-    return {"in_county_limits": True, "county": feature["name"]}
-    
+    x = lon
+    y = lat
+    location_group = None
+    if is_within_city_limits:
+        location_group = get_cities()
+    else:
+        location_group = get_counties()
+    for feature in location_group:
+        if feature['geom'].covers(point):
+            location_name = feature['name']
+
+    return location_name
+
 
