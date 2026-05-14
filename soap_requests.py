@@ -34,7 +34,8 @@ def request_juris(location_name, city_or_county):
 
     juris_permit_type_array = []
     for row in rows:
-        juris_raw = row.attrib.get('ows_Jurisdiction')
+        #juris_raw = row.attrib.get('ows_Jurisdiction')
+        juris_raw = row.attrib.get('ows_Title')
         juris_clean = re.sub(r'^[^#]*#', '', juris_raw)
         #juris_clean = "".join(filter(str.isalpha, juris_raw))
 
@@ -44,7 +45,9 @@ def request_juris(location_name, city_or_county):
         permit_types_array = permit_types_clean.split()
 
         if city_or_county == COUNTY_STRING:
-            if juris_raw == location_name:
+            print(f'Getting block for county. juris_clean was {juris_clean}, and location_name was: {location_name}')
+            if location_name.upper() in juris_clean.upper():
+                print(f'adding location {location_name}')
                 juris_info_block = JurisInfo(jurisdiction_name=juris_clean, permit_types=permit_types_array)
                 juris_permit_type_array.append(juris_info_block)
         else:
