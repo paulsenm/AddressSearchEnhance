@@ -3,11 +3,11 @@ from flask import Flask, request, render_template
 from handle_address import create_address, get_juris_permit_type_blocks
 from soap_requests import get_juris_contact
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
 
-@app.route('/', methods=['GET','POST'])
+@application.route('/', methods=['GET','POST'])
 def search_address():
     if request.method == 'GET':
         return render_template('index.html')
@@ -25,4 +25,4 @@ def search_address():
 
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
